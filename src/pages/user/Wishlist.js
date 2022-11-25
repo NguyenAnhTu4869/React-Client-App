@@ -34,11 +34,18 @@ const Wishlist = () => {
 	const WishListItem = () => (
 		<div
 			className='table-bordered container-fluid p-1'
-			style={{ width: '40rem' }}>
+			style={{ width: '100%' }}>
 			{wishlist.map((product) => (
 				<div
 					key={product._id}
 					className='alert alert-secondary'>
+					<span
+						className='d-block d-sm-none float-right text-danger'
+						style={{ cursor: 'pointer' }}
+						onClick={() => handleRemoveProduct(product._id, product.title)}>
+						<DeleteOutlined />
+						&nbsp; Remove
+					</span>
 					<img
 						src={product.images[0].url}
 						alt={product.title}
@@ -55,7 +62,7 @@ const Wishlist = () => {
 					</a>
 					<span>{` (Price: $${product.price})`}</span>
 					<span
-						className='float-right text-danger'
+						className='d-none d-sm-block float-right text-danger'
 						style={{ cursor: 'pointer' }}
 						onClick={() => handleRemoveProduct(product._id, product.title)}>
 						<DeleteOutlined />
@@ -69,10 +76,13 @@ const Wishlist = () => {
 	return (
 		<div className='container-fluid'>
 			<div className='row'>
-				<div className='col-md-2'>
+				<div className='d-none d-sm-block col-lg-2 col-md-2'>
 					<UserNav />
 				</div>
-				<div className='col'>
+				<div className='d-block d-sm-none col-lg-2 col-md-2 text-center'>
+					<UserNav />
+				</div>
+				<div className='col-lg-10 col-md-10'>
 					<h4 className='text-center'>
 						{wishlist.length ? 'Your Wishlist' : 'No Product Added To Wishlist'}
 					</h4>

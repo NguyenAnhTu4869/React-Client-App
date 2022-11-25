@@ -55,7 +55,7 @@ const Products = () => {
 		products.map((product) => (
 			<div
 				key={product._id}
-				className='col-md-4 pb-2'>
+				className='col-md-4 pb-2 mt-4'>
 				<AdminProductCard
 					product={product}
 					onClickDelete={handleClickDeleteProduct}
@@ -66,10 +66,13 @@ const Products = () => {
 	return (
 		<div className='container-fluid'>
 			<div className='row'>
-				<div className='col-md-2'>
+				<div className='d-none d-sm-block col-lg-2 col-md-2'>
 					<AdminNav />
 				</div>
-				<div className='col'>
+				<div className='d-block d-sm-none col-lg-2 col-md-2 text-center'>
+					<AdminNav />
+				</div>
+				<div className='col-lg-10 col-md-10'>
 					{loading ? (
 						<h4 className='text-warning'>
 							Loading <LoadingOutlined />

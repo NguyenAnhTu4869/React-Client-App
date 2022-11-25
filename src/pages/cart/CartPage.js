@@ -51,25 +51,27 @@ const CartPage = ({ history }) => {
 	};
 
 	const renderProductTable = () => (
-		<table className='table table-bordered'>
-			<thead className='thead-light'>
-				<tr className='text-center border'>
-					<th scope='col'>Image</th>
-					<th scope='col'>Title</th>
-					<th scope='col'>Price</th>
-					<th scope='col'>Color</th>
-					<th scope='col'>Shipping</th>
-					<th scope='col'>Quantity</th>
-					<th scope='col'></th>
-				</tr>
-			</thead>
-			{cart.map((product) => (
-				<ProductCheckoutItem
-					product={product}
-					key={product._id}
-				/>
-			))}
-		</table>
+		<div className='table-responsive'>
+			<table className='table table-sm table-bordered'>
+				<thead className='thead-light'>
+					<tr className='text-center border'>
+						<th scope='col'>Image</th>
+						<th scope='col'>Title</th>
+						<th scope='col'>Price</th>
+						<th scope='col'>Color</th>
+						<th scope='col'>Shipping</th>
+						<th scope='col'>Quantity</th>
+						<th scope='col'></th>
+					</tr>
+				</thead>
+				{cart.map((product) => (
+					<ProductCheckoutItem
+						product={product}
+						key={product._id}
+					/>
+				))}
+			</table>
+		</div>
 	);
 
 	const renderCartInfo = () => {

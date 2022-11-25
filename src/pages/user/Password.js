@@ -59,8 +59,9 @@ const Password = () => {
 	return (
 		<div className='container-fluid'>
 			<div className='row'>
-				<div className='col-md-2'>{user.role === 'admin' ? <AdminNav /> : <UserNav />}</div>
-				<div className='col'>
+				<div className='d-none d-sm-block col-lg-2 col-md-2'>{user.role === 'admin' ? <AdminNav /> : <UserNav />}</div>
+				<div className='d-block d-sm-none col-lg-2 col-md-2 text-center'>{user.role === 'admin' ? <AdminNav /> : <UserNav />}</div>
+				<div className='col-lg-10 col-md-10'>
 					{loading ? (
 						<h3 className='text-info pt-1'>Loading</h3>
 					) : (

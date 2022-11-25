@@ -35,57 +35,59 @@ const OrderList = ({ orders, onStatusChange }) => {
 
 	return (
 		<Fragment>
-			<table className='table table-responsive'>
-				<thead className='thead-light text-center'>
-					<tr>
-						<th scope='col'>ORDER DETAILS</th>
-						<th scope='col'>CURRENT STATUS</th>
-						<th scope='col'>UPDATE STATUS</th>
-					</tr>
-				</thead>
-				<tbody>
-					{orders.map((order) => (
-						<tr
-							key={order._id}
-							className='bg-light'>
-							<td>
-								<PaymentInfo
-									order={order}
-									showStatus={false}
-								/>
-								<PaymentItemTable
-									order={order}
-									showDownloadLink={false}
-								/>
-							</td>
-							<td
-								className='text-center'
-								style={{ fontSize: '1rem' }}>
-								<span className={`badge ${getTextClassName(order)} text-light`}>
-									{order.orderStatus}
-								</span>
-							</td>
-							<td className='text-center'>
-								<select
-									style={{ fontSize: '.8rem' }}
-									className='form-control text-center'
-									defaultValue={order.orderStatus}
-									onChange={(e) => {
-										handleChange(e, order._id);
-									}}>
-									{ORDER_STATUS.map((status, index) => (
-										<option
-											key={index}
-											value={status}>
-											{status}
-										</option>
-									))}
-								</select>
-							</td>
+			<div className='table-responsive'>
+				<table className='table table-responsive'>
+					<thead className='thead-light text-center'>
+						<tr>
+							<th scope='col'>ORDER DETAILS</th>
+							<th scope='col'>CURRENT STATUS</th>
+							<th scope='col'>UPDATE STATUS</th>
 						</tr>
-					))}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{orders.map((order) => (
+							<tr
+								key={order._id}
+								className='bg-light'>
+								<td>
+									<PaymentInfo
+										order={order}
+										showStatus={false}
+									/>
+									<PaymentItemTable
+										order={order}
+										showDownloadLink={false}
+									/>
+								</td>
+								<td
+									className='text-center'
+									style={{ fontSize: '1rem' }}>
+									<span className={`badge ${getTextClassName(order)} text-light`}>
+										{order.orderStatus}
+									</span>
+								</td>
+								<td className='text-center'>
+									<select
+										style={{ fontSize: '.8rem' }}
+										className='form-control text-center'
+										defaultValue={order.orderStatus}
+										onChange={(e) => {
+											handleChange(e, order._id);
+										}}>
+										{ORDER_STATUS.map((status, index) => (
+											<option
+												key={index}
+												value={status}>
+												{status}
+											</option>
+										))}
+									</select>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</Fragment>
 	);
 };

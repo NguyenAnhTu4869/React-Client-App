@@ -48,10 +48,13 @@ const CategoryUpdate = ({ history, match }) => {
 	return (
 		<div className='container-fluid'>
 			<div className='row'>
-				<div className='col-md-2'>
+				<div className='d-none d-sm-block col-lg-2 col-md-2'>
 					<AdminNav />
 				</div>
-				<div className='col'>
+				<div className='d-block d-sm-none col-lg-2 col-md-2 text-center'>
+					<AdminNav />
+				</div>
+				<div className='col-lg-10 col-md-10'>
 					<h4>Update Category Name</h4>
 					<InputForm
 						handleSubmit={handleSubmit}
