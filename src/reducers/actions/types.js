@@ -1,0 +1,8 @@
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const COUPON_APPLIED = 'COUPON_APPLIED';
+export const SET_DRAWER_VISIBILITY = 'SET_DRAWER_VISIBILITY';
+export const SET_MODAL_VISIBILITY = 'SET_MODAL_VISIBILITY';
+export const PAY_COD = 'PAY_COD';
+export const PRODUCT_FILTER = 'PRODUCT_FILTER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
