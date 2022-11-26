@@ -12,12 +12,20 @@ import StarRatings from 'react-star-ratings';
 import ProductDetailsList from './ProductDetailsList';
 import RatingModal from '../modal/RatingModal';
 import Ratings from '../../components/ratings/Ratings';
+import Comments from '../../components/comment/Comments';
 import { ADD_TO_CART, SET_DRAWER_VISIBILITY } from '../../reducers/actions/types';
 import _ from 'lodash';
 
 const { TabPane } = Tabs;
 
-const ProductDetails = ({ product, userInfo, handleUserRating, star }) => {
+const ProductDetails = ({
+	product,
+	userInfo,
+	handleUserRating,
+	star,
+	comments,
+	refreshComment,
+}) => {
 	const [tooltip, setTooltip] = useState('Click to add');
 	const { title, images, description, _id } = product;
 	const { user } = useSelector((state) => ({ ...state }));
@@ -37,9 +45,7 @@ const ProductDetails = ({ product, userInfo, handleUserRating, star }) => {
 					<img
 						src={image.url}
 						key={image.public_id}
-						style={{
-							objectFit: 'fill',
-						}}
+						style={{ objectFit: 'fill', }}
 					/>
 				))
 			) : (
@@ -92,23 +98,6 @@ const ProductDetails = ({ product, userInfo, handleUserRating, star }) => {
 		<Fragment>
 			<div className='col-lg-7 col-md-6'>
 				<ImagesCarousel />
-				<Tabs type='card'>
-					<TabPane
-						tab='Description'
-						key='description'>
-						{description}
-					</TabPane>
-					<TabPane
-						tab='Specifications'
-						key='specifications'>
-						...
-					</TabPane>
-					<TabPane
-						tab='More'
-						key='more'>
-						...
-					</TabPane>
-				</Tabs>
 			</div>
 			<div className='col-lg-5 col-md-6'>
 				<h2
@@ -159,6 +148,29 @@ const ProductDetails = ({ product, userInfo, handleUserRating, star }) => {
 					]}>
 					<ProductDetailsList product={product} />
 				</Card>
+			</div>
+			<div className='col-md-12 mt-3'>
+				<Tabs type='card'>
+					<TabPane
+						tab='Description'
+						key='description'>
+						{description}
+					</TabPane>
+					<TabPane
+						tab='Reviews & Questions'
+						key='Reviews'>
+						<Comments
+							productId={_id}
+							refreshComment={refreshComment}
+							comments={comments}
+						/>
+					</TabPane>
+					<TabPane
+						tab='More'
+						key='more'>
+						future update...
+					</TabPane>
+				</Tabs>
 			</div>
 		</Fragment>
 	);

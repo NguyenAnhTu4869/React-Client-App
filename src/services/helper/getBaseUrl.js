@@ -12,3 +12,4 @@ export const getPaymentBaseUrl = (path) => getBaseUrl(`/payment${path}`);
 export const getUserBaseUrl = (path) => getBaseUrl(`/user${path}`);
 export const getOrderBaseUrl = (path) => getBaseUrl(`/order${path}`);
 export const getUploadBaseUrl = (path) => getBaseUrl(`/image${path}`);
+export const getCommentBaseUrl = (path) => getBaseUrl(`/comment${path}`);
